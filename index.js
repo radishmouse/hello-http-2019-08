@@ -18,7 +18,7 @@ function handleRequestAndResponse(req, res) {
 const server = http.createServer((req, res) => {
     console.log(req.url);
     const timestamp = new Date();
-    console.log("Received a Request!!!!!!!!!!!!!!!!!!!");
+    console.log("I totally received a Request!!!!!!!!!!!!!!!!!!!");
     res.end(`<h1>Hello World ${timestamp}</h1>`);  // .end() sends the response.
                                           // It "tapes up the box and ships it".
 });
