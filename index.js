@@ -1,33 +1,31 @@
-// Without "./", Node looks
-// in its global module folder
+//without "./", node looks in it's global module folder
+
 const http = require("http");
-function handleRequestAndResponse(req, res) {
+const nerds = require('nerds');
+const single = nerds.resolve('Harry Potter').asArray()[0].full;
+console.log(single);
+
+
+function handleReqAndResp(req, res) {
     console.log(req.url);
-    const timestamp = new Date();
-    console.log("Received a Request");
-    res.end(`<h1>Hello World ${timestamp}</h1>`);  // .end() sends the response.
-                                          // It "tapes up the box and ships it".
-}
-// What's a server??!?
-// A server is a piece of code
-// or a computer running a piece of code
-// that does something useful for YOU.
-// Usually, servers store
-// data and often manipulate that data.
-// const server = http.createServer(handleRequestAndResponse);
-const server = http.createServer((req, res) => {
-    console.log(req.url);
-    const timestamp = new Date();
-    console.log("I totally received a Request!!!!!!!!!!!!!!!!!!!");
-    res.end(`<h1>Hello World ${timestamp}</h1>`);  // .end() sends the response.
-                                          // It "tapes up the box and ships it".
-});
-
-// http.createServer() accepts a function and returns a "server"
-// When the server receives a Request:
-// 1. It puts together *most* of a Response.
-// 2. It calls *your* function and passes it the Request and Response
+    res.end(`<h1>Hello World this is ${single}</h1>`); //.end() sends the response.
+    console.log("received a request");                                    // it "tapes up the box and ships it"
+};
 
 
-// What is 3000?
-server.listen(3000);
+//create a variable that represents our server, what's a server?
+// a server is a piece of code or a computer
+// running a piece of code that does something useful for you
+// usually servers store data and often manipulate
+//that data
+//http.createServer() accepts a function, and returns a "server"
+//when the server receives a Request:
+// 1. It puts together *most of a response
+// 2. It calls your function and passes it the request and response
+
+
+const server = http.createServer(handleReqAndResp);
+//createServer() creates a server
+//what is 3000? or 9000, it's a pobox
+server.listen(7002);
+
