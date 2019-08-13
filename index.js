@@ -4,11 +4,15 @@ const http = require("http");
 const nerds = require('nerds');
 const single = nerds.resolve('Harry Potter').asArray()[0].full;
 console.log(single);
+const single2 = nerds.resolve('Harry Potter').asArray()[0].full;
+console.log(single2)
+const single3 = nerds.resolve('Harry Potter').asArray()[0].full;
+const single4 = nerds.resolve('Harry Potter').asArray()[0].full;
 
 
 function handleReqAndResp(req, res) {
     console.log(req.url);
-    res.end(`<h1>Hello World this is ${single}</h1>`); //.end() sends the response.
+    res.end(`<h1>My name is ${single}, and I hate ${single2}, love ${single3}, and am going to kill ${single4}.</h1>`); //.end() sends the response.
     console.log("received a request");                                    // it "tapes up the box and ships it"
 };
 
